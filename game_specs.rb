@@ -13,13 +13,13 @@ describe Game do
     @game.add_player(@player)
   end
 
-  it "increases player's health by 15 when high # is rolled" do
+  it "increases player's health by 12 when high # is rolled" do
     # Die.
     dice = double(Die, roll: 5)
     allow(Die).to receive(:new).and_return(dice)
 
     @game.play
-    expect(@player.health).to eq(@initial_health + 15)
+    expect(@player.health).to eq(@initial_health + 12)
   end
 
   it "decreases player's health by 10 when low # is rolled" do

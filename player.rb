@@ -5,10 +5,21 @@ class Player
   def initialize(name, health = 100)
     self.name = name.capitalize
     self.health = health
+    @found_treasures = Hash.new(0)
   end
 
   def to_s
-    "#{name}" #(#{health})"
+    "#{name}" # (#{health})"
+  end
+
+  def found_treasures(treasure)
+    @found_treasures[treasure.name] += treasure.value
+    puts "#{name} found a #{treasure.name} worth #{treasure.value} points."
+    # puts "#{name}'s treasure: #{@found_treasures}'"
+  end
+
+  def total_points
+    @found_treasures.values.reduce(0, :+)
   end
 
   def responce
@@ -51,7 +62,7 @@ class Player
   end
 
   def w00t
-    self.health += 15
+    self.health += 12
     puts "\n#{name} got wooted!"
   end
 
@@ -60,7 +71,7 @@ class Player
   end
 
   def score
-    health + name.length
+    health + total_points
   end
 end
 
