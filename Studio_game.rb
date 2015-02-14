@@ -18,6 +18,8 @@ player9 = Player.new('jamie')
 player10 = Player.new('peter', 70)
 
 knuckleheads = Game.new('Knuckleheads')
+puts "\nHow many rounds do you want our game to have?"
+number_of_rounds = gets.chomp.to_i
 knuckleheads.game_title
 knuckleheads.add_player(player1)
 knuckleheads.add_player(player2)
@@ -29,7 +31,7 @@ knuckleheads.add_player(player7)
 knuckleheads.add_player(player8)
 knuckleheads.add_player(player9)
 knuckleheads.add_player(player10)
-knuckleheads.play(1)
+knuckleheads.play(number_of_rounds)
 knuckleheads.print_stats
 
 puts "\nGAME OVER!!!"
